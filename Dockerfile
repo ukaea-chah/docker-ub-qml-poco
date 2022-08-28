@@ -1,35 +1,30 @@
 FROM ubuntu:22.04
 #FROM debian:bullseye-slim
 
+# Basic stuff and build tools
 RUN apt-get update \
  && apt-get -y install --no-install-recommends \
-    qml-module-qtquick-controls
+    build-essential \
+    cmake
 
+# Poco C++ library
 RUN apt-get -y install --no-install-recommends \
-    qml-module-qtquick-xmllistmodel \
-    cmake \
     libpoco-dev
 
+# Qt5 build tools
 RUN apt-get -y install --no-install-recommends \
-    build-essential
-
-RUN apt-get -y install --no-install-recommends \
+    qtdeclarative5-dev \
     libqt5charts5-dev
 
+# QML tools
 RUN apt-get -y install --no-install-recommends \
-    qtdeclarative5-dev
+    qtchooser \
+    qmlscene
 
-# To test X
+# QML modules needed by DAS_HMI
 RUN apt-get -y install --no-install-recommends \
-    x11-utils
-
-# qmlscene: could not find a Qt installation of ''
-# - /usr/bin/qmlscene is a wrapper which runs a specifi version
-RUN apt-get -y install --no-install-recommends \
-    qtchooser qmlscene
-
-RUN apt-get -y install --no-install-recommends \
-    qml-module-qtquick-controls2
-
-RUN apt-get -y install --no-install-recommends \
+    qml-module-qtquick2 \
+    qml-module-qtquick-window2 \
+    qml-module-qtquick-controls2 \
+    qml-module-qtquick-xmllistmodel \
     qml-module-qtcharts
