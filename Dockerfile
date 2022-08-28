@@ -19,6 +19,17 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install --no-install-recommends \
     qtdeclarative5-dev
 
+# To test X
 RUN apt-get -y install --no-install-recommends \
     x11-utils
 
+# qmlscene: could not find a Qt installation of ''
+# - /usr/bin/qmlscene is a wrapper which runs a specifi version
+RUN apt-get -y install --no-install-recommends \
+    qtchooser qmlscene
+
+RUN apt-get -y install --no-install-recommends \
+    qml-module-qtquick-controls2
+
+RUN apt-get -y install --no-install-recommends \
+    qml-module-qtcharts
