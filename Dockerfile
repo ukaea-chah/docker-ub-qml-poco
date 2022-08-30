@@ -28,3 +28,7 @@ RUN apt-get -y install --no-install-recommends \
     qml-module-qtquick-controls2 \
     qml-module-qtquick-xmllistmodel \
     qml-module-qtcharts
+
+# Test framework
+RUN apt-get -y install --no-install-recommends \
+    libgtest-dev
