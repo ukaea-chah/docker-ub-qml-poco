@@ -31,4 +31,13 @@ RUN apt-get -y install --no-install-recommends \
 
 # Test framework
 RUN apt-get -y install --no-install-recommends \
-    libgtest-dev
+    libgtest-dev \
+    libgmock-dev
+
+# Other tools
+RUN apt-get -y install --no-install-recommends \
+    file less \
+    strace \
+    git
+
+RUN ldconfig
