@@ -38,6 +38,7 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install --no-install-recommends \
     file less \
     strace \
-    git
+    git \
+    gdb
 
 RUN ldconfig
